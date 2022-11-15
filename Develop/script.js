@@ -1,15 +1,51 @@
+// hours 
+let hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+// hours element 
+hoursEl = [
+  "#hour-9",
+  "#hour-10",
+  "#hour-11",
+  "hour-12",
+  "hour-13",
+  "#hour-14",
+  "#hour-15",
+  "#hour-16",
+  "hour-17",
+  "#hour-18",
+  "hour-19",
+  "#hour-20",
+  "#hour-21"
+];
+
+
+
 // display current date (today is <weekday, month, day, year>)
 var today = dayjs();
 $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
 
 
-$(".saveBtn").click(function () {
-  
-  });
+// save user input to local storage 
+$(document).ready(function() {
+$(".saveBtn").on("click", function() {
+  let newVar = $(this).siblings(".description").val();
+  let newVar2 = $(this).parent().attr("id")
+  localStorage.setItem(newVar, newVar2)});
+});
 
 
+  // get item value for each input in local storage 
+ // for (let i = 0; i < hoursEl.length; i++) {
+   // textarea[i].innerHTML = localStorage.getItem(hoursEl//[i], textarea[i].value);}
 
+  // confused on past, present, future, and how tp change colors based on this......
+  // let newVar = $(this).children/siblings("?").val();
+  // let newVar2 = $(this) ?
+  // localStorage.setItem("","");
 
+  //localStorage.getItem(); 
+
+  // if statement based on values for setting colors add class, remove class 
+  // $ and descripton for each hour - set for each hour 
 
 
   // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
