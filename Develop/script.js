@@ -1,5 +1,7 @@
-// hours 
-let hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+$(function () {
+
+// hours array 
+hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
 // hours element 
 hoursEl = [
   "#hour-9",
@@ -17,6 +19,10 @@ hoursEl = [
   "#hour-21"
 ];
 
+// global variables 
+
+var currentTime = dayjs().format("H");
+
 
 
 // display current date (today is <weekday, month, day, year>)
@@ -27,10 +33,41 @@ $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
 // save user input to local storage 
 $(document).ready(function() {
 $(".saveBtn").on("click", function() {
-  let newVar = $(this).siblings(".description").val();
-  let newVar2 = $(this).parent().attr("id")
-  localStorage.setItem(newVar, newVar2)});
+  let text = $(this).siblings(".description").val();
+  let time = $(this).parent().attr("id")
+  localStorage.setItem(text, time)});
 });
+
+for (let i=0; i < hoursEl.length; i++) {
+  
+  for (let i=0; i < hoursArray.length; i++) {
+  
+    if (currentTime === hoursArray[i]) {
+      hoursEl[i].addClass("present")
+  
+    } else if
+      (currentTime > hoursArray[i]) {
+        hoursEl[i].addClass("past")
+        
+      } else {
+        hoursEl[i].addClass("future")
+      }
+      $(hoursEl[i].children("textarea")).val()
+      localStorage.getItem(hoursArray[i])
+      }
+  }
+});
+ //localStorage.getItem(); 
+
+
+  // if statement based on values for setting colors add class, remove class 
+  // $ and descripton for each hour - set for each hour 
+ 
+
+
+
+
+
 
 
   // get item value for each input in local storage 
@@ -42,10 +79,8 @@ $(".saveBtn").on("click", function() {
   // let newVar2 = $(this) ?
   // localStorage.setItem("","");
 
-  //localStorage.getItem(); 
+ 
 
-  // if statement based on values for setting colors add class, remove class 
-  // $ and descripton for each hour - set for each hour 
 
 
   // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
