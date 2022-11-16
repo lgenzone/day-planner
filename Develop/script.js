@@ -1,106 +1,43 @@
-
-
-// global variables 
-var currentHour = dayjs().format("H");
-  console.log(currentHour); //working
-
-// hour blocks - turn each hour block into one array
-
-// hour array (elements)
-
-// hours array (time)
-
-
-
-
-// display current date (today is <weekday, month, day, year>)
+// display current date 
 var today = dayjs();
 $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
 
-
-
-// save user input to local storage 
-//$(document).ready(function() {
-//$(".saveBtn").on("click", function() {
-  //let text = $(this).siblings(".description").val();
-  //let time = $(this).parent().attr("id");
-  //console.log(time);
-  //localStorage.setItem(text, time)});
-
- // for loop (hours)
- // for (let i=0; i < hours.length; i++) {
   
-// for loop (hoursArray)
-    //for (let i=0; i < hoursArray.length; i++) {
     var setHourBlock = function(hourBlock) { 
+      // format date 0-23 (hour)
       var currentHour = dayjs().format("H");
+      // select hour block
       var hours = hourBlock.querySelector("textarea")
-      console.log(hourBlock) 
-      // convert string to number
+      // console.log(hourBlock) 
+      // convert frmo string to number
       var hourId = Number.parseInt(hourBlock.id)
-      console.log(hourId)
+      //console.log(hourId)
+      // checks if current hour is less than hour block and assigns future color green 
       if (currentHour < hourId) {
         hours.classList.add("future");
+        //check if current hour is greater than hour block and assigns past color grey
       } else if (currentHour > hourId) {
         hours.classList.add("past");
+        // if neither, assign present color red
       } else {
         hours.classList.add("present");
       }
+      // get tasks from local storage
       var getTasks = localStorage.getItem(hourId)
-      console.log(getTasks)
+      //console.log(getTasks)
       hours.value = getTasks;
 
+      // assign click event to save button, log text input
       $(".saveBtn").on("click", function() {
-        //let text = $(this).siblings(".description").val();
-        //let time = $(this).parent().attr("id");
         let text = hours.value;
         console.log(text)
-        
+        // set items to local storage
         localStorage.setItem(hourId, (text))});
     };
 
     document.querySelectorAll(".row").forEach(setHourBlock);
-    //};
-    // get from local storage
-   
-
     
-    //};
 
 
 
-    //var timeBlock = hours[i];
-    // remove green/future, add red/present
-    // if (currentHour == timeBlock) {
-    //$(hoursArray[i]).removeClass("future").addClass("present");}
-  
-// checks if current time is before hour block 
-  //for (i=0; i < hours.length; i++) {
-    //timeBlock = hours[i];
-
-    //if (currentHour > timeBlock)
-    //$(hoursArray[i]).removeClass("future").addClass("past");}
-  
-
- // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-  // the code isn't run until the browser has finished rendering all the elements
-  // in the html.
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+   
