@@ -1,22 +1,15 @@
-$(function () {
+
 
 // global variables 
-currentHour = dayjs().format("H");
+var currentHour = dayjs().format("H");
+  console.log(currentHour); //working
 
 // hour blocks - turn each hour block into one array
-var nine = $("#hour-9");
-var ten = $("#hour-10");
-var eleven = $("#hour-11");
-var twelve = $("#hour-12");
-var thirteen = $("#hour-13");
-var fourteen = $("#hour-14");
-var fifteen = $("#hour-15");
-var sixteen = $("#hour-16");
-var seventeen = $("#hour-17");
+
 // hour array (elements)
-hoursArray = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen];
+
 // hours array (time)
-hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+
 
 
 
@@ -28,30 +21,51 @@ $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
 
 // save user input to local storage 
 //$(document).ready(function() {
-$(".saveBtn").on("click", function() {
-  let text = $(this).siblings(".description").val();
-  let time = $(this).parent().attr("id");
-  localStorage.setItem(text, time)});
-});
+//$(".saveBtn").on("click", function() {
+  //let text = $(this).siblings(".description").val();
+  //let time = $(this).parent().attr("id");
+  //console.log(time);
+  //localStorage.setItem(text, time)});
 
  // for loop (hours)
-  for (let i=0; i < hours.length; i++) {
+ // for (let i=0; i < hours.length; i++) {
+  
 // for loop (hoursArray)
-    for (let i=0; i < hoursArray.length; i++) {
-      
-      if (currentHour == hoursArray[i]) {
-        hours[i].addClass("present");
-      } else if (currentHour > hoursArray[i]) {
-        hours[i].addClass("past");
+    //for (let i=0; i < hoursArray.length; i++) {
+    var setHourBlock = function(hourBlock) { 
+      var currentHour = dayjs().format("H");
+      var hours = hourBlock.querySelector("textarea")
+      console.log(hourBlock) 
+      // convert string to number
+      var hourId = Number.parseInt(hourBlock.id)
+      console.log(hourId)
+      if (currentHour < hourId) {
+        hours.classList.add("future");
+      } else if (currentHour > hourId) {
+        hours.classList.add("past");
       } else {
-        hours[i].addClass("future");
+        hours.classList.add("present");
       }
-    };
-    // get from local storage
-    $(hours[i].children("textarea")).val(localStorage.getItem(hours[i]));
+      var getTasks = localStorage.getItem(hourId)
+      console.log(getTasks)
+      hours.value = getTasks;
 
-    console.log(test);
+      $(".saveBtn").on("click", function() {
+        //let text = $(this).siblings(".description").val();
+        //let time = $(this).parent().attr("id");
+        let text = hours.value;
+        console.log(text)
+        
+        localStorage.setItem(hourId, (text))});
     };
+
+    document.querySelectorAll(".row").forEach(setHourBlock);
+    //};
+    // get from local storage
+   
+
+    
+    //};
 
 
 
