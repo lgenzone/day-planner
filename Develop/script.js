@@ -13,21 +13,17 @@ var fourteen = $("#hour-14");
 var fifteen = $("#hour-15");
 var sixteen = $("#hour-16");
 var seventeen = $("#hour-17");
-//array
-var hoursArray = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen];
-
-
-
-
-
-
-
+// hour array (elements)
+hoursArray = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen];
+// hours array (time)
+hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 
 
 // display current date (today is <weekday, month, day, year>)
 var today = dayjs();
 $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
+
 
 
 // save user input to local storage 
@@ -39,15 +35,17 @@ $(".saveBtn").on("click", function() {
 });
  // get items from local storage 
  
+ // checks if current time is equal to current hour
+ function colorBlocks() {
+  for (i=0; i < hours.length; i++) {
+    var timeBlock = hours[i];
+    
+    if (currentHour == timeBlock) {
+    $(hoursArray[i]).removeClass("future").addClass("past");
+    }
+  }
+ };
 
- function checkTime() {
-  var t = new Date();
-  var time = t.getTime();
-  currentHour = time;
-
-  $
-
- }
 
 
   // if statement based on values for setting colors add class, remove class 
