@@ -1,18 +1,23 @@
-$(function() {
+/*$(function() {
 
 //global variables
 var save = $(".saveBtn");
+var currentTime = dayjs().format("H");
+
 
 
 // display current day 
 var today = dayjs();
 $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
 
+// time block array
+timeBlockArr = ["#hour-9", "#hour-10", "#hour-11","hour-12","hour-13", "#hour-14", "#hour-15", "#hour-16", "hour-17",];
+
+
   // Add a listener for click events on the save button.
  function savePlan(event) {
     event.preventDefault();
-    // local variables
-    let task = $(this).siblings(".desdciption").val();
+    let task = $(this).siblings(".description").val();
     let time = $(this).parent().attr("id");
     // save to local storage 
     localStorage.setItem(task, time);
@@ -21,6 +26,12 @@ $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
  };
  //localStorage.getItem()
   
+ function checkTime() {
+   
+
+    
+    
+ }
   
   
 
@@ -55,4 +66,4 @@ $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  
+  */

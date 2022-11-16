@@ -1,27 +1,25 @@
-/*// global variables 
-var currentHour = dayjs().format("H");
-
-
 $(function () {
 
-// hours array 
-hoursArray = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
-// hours element 
-hoursEl = [
-  "#hour-9",
-  "#hour-10",
-  "#hour-11",
-  "hour-12",
-  "hour-13",
-  "#hour-14",
-  "#hour-15",
-  "#hour-16",
-  "hour-17",
-  "#hour-18",
-  "hour-19",
-  "#hour-20",
-  "#hour-21"
-];
+// global variables 
+var currentHour = dayjs().format("H");
+
+// hour blocks - turn each hour block into one array
+var nine = $("#hour-9");
+var ten = $("#hour-10");
+var eleven = $("#hour-11");
+var twelve = $("#hour-12");
+var thirteen = $("#hour-13");
+var fourteen = $("#hour-14");
+var fifteen = $("#hour-15");
+var sixteen = $("#hour-16");
+var seventeen = $("#hour-17");
+//array
+var hoursArray = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen];
+
+
+
+
+
 
 
 
@@ -39,27 +37,17 @@ $(".saveBtn").on("click", function() {
   let time = $(this).parent().attr("id")
   localStorage.setItem(text, time)});
 });
+ // get items from local storage 
+ 
 
-for (let i=0; i < hoursEl.length; i++) {
-  
-  for (let i=0; i < hoursArray.length; i++) {
-  
-    if (currentHour === hoursArray[i]) {
-      hoursEl[i].addClass("present")
-  
-    } else if
-      (currentHour > hoursArray[i]) {
-        hoursEl[i].addClass("past")
-        
-      } else {
-        hoursEl[i].addClass("future")
-      }
-      $(hoursEl[i].children("textarea")).val()
-      localStorage.getItem(hoursArray[i])
-      }
-  }
-});
- //localStorage.getItem(); 
+ function checkTime() {
+  var t = new Date();
+  var time = t.getTime();
+  currentHour = time;
+
+  $
+
+ }
 
 
   // if statement based on values for setting colors add class, remove class 
@@ -107,4 +95,5 @@ for (let i=0; i < hoursEl.length; i++) {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-*/
+
+});
