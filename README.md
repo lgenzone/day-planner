@@ -10,12 +10,12 @@
 
  ## Installation 
 
- There is no installation required for the Day Planner Application. To access the webpage, click the deployed URL link below. Users may store and clear daily tasks by accessing local storage. 
+ There is no installation required for the Day Planner Application. To access the webpage, click the deployed URL link in "Usage" section. Users may store and clear daily tasks by accessing local storage. 
 
  ## Usage 
 
  To access the webpage, click the deployed URL link below: 
- (ADD DEPLOYED URL)
+ https://lgenzone.github.io/day-planner/ 
 
  Hour blocks are displayed from 9 a.m. to 5 p.m. Hour blocks are colored based on past(grey), present(red), and future(green).
  
@@ -35,7 +35,7 @@ Clear local storage:
 OR
 2. Type the following command into the console: localStorage.clear()
 
-(ADD SCREENSHOT)
+<img width="1400" alt="day-planner-webpage-screenshot" src="https://user-images.githubusercontent.com/113480175/202304228-03d1a397-1e36-4258-b6c3-bb3d1ec8f5e9.png">
 
 ## License 
 
