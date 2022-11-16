@@ -4,7 +4,7 @@
 
  The Day Planner is a simple yet effective calendar application that allows users to save events for each hour of the day. The application runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
- The day planner is a tool that aims to assist users with organizing their daily tasks for the day in one convenient location.
+ The Day Planner is a tool that aims to assist users with organizing their daily tasks for the day in one convenient location.
 
  This project gave me the opportunity to practice my newly acquired coding skills. Through the process of creating the Day Planner application, I've become more familiar with jQuery, Day.js, and working with local storage.
 
@@ -35,7 +35,7 @@ Clear local storage:
 OR
 2. Type the following command into the console: localStorage.clear()
 
-<img width="1400" alt="day-planner-webpage-screenshot" src="https://user-images.githubusercontent.com/113480175/202304228-03d1a397-1e36-4258-b6c3-bb3d1ec8f5e9.png">
+<img width="1361" alt="day-planner-webpage-screenshot" src="https://user-images.githubusercontent.com/113480175/202308073-1434b164-6bda-42e7-9bb4-a34183a16205.png">
 
 ## License 
 

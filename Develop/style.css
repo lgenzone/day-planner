@@ -12,6 +12,18 @@ textarea {
   padding: 10px;
 }
 
+h1 {
+  text-align: center;
+  font-family: 'Cabin', sans-serif;
+}
+
+.lead {
+  text-align: center;
+  font-family: 'Cabin', sans-serif;
+
+}
+
+
 .description {
   white-space: pre-wrap;
 }
@@ -31,25 +43,28 @@ textarea {
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #bdc2bf;
   color: white;
+  font-family: 'Cabin', sans-serif;
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #ED6A5A;
   color: white;
+  font-family: 'Cabin', sans-serif;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #136F63;
   color: white;
+  font-family: 'Cabin', sans-serif;
 }
 
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: #63B0CD;
   color: white;
 }
 
