@@ -1,7 +1,7 @@
 $(function () {
 
 // global variables 
-var currentHour = dayjs().format("H");
+currentHour = dayjs().format("H");
 
 // hour blocks - turn each hour block into one array
 var nine = $("#hour-9");
@@ -27,51 +27,48 @@ $('#currentDay').text(today.format('[Today is] dddd' + ' MMM D, YYYY'));
 
 
 // save user input to local storage 
-$(document).ready(function() {
+//$(document).ready(function() {
 $(".saveBtn").on("click", function() {
   let text = $(this).siblings(".description").val();
-  let time = $(this).parent().attr("id")
+  let time = $(this).parent().attr("id");
   localStorage.setItem(text, time)});
 });
- // get items from local storage 
- 
- // checks if current time is equal to current hour
- function colorBlocks() {
-  for (i=0; i < hours.length; i++) {
-    var timeBlock = hours[i];
-    
-    if (currentHour == timeBlock) {
-    $(hoursArray[i]).removeClass("future").addClass("past");
-    }
-  }
- };
+
+ // for loop (hours)
+  for (let i=0; i < hours.length; i++) {
+// for loop (hoursArray)
+    for (let i=0; i < hoursArray.length; i++) {
+      
+      if (currentHour == hoursArray[i]) {
+        hours[i].addClass("present");
+      } else if (currentHour > hoursArray[i]) {
+        hours[i].addClass("past");
+      } else {
+        hours[i].addClass("future");
+      }
+    };
+    // get from local storage
+    $(hours[i].children("textarea")).val(localStorage.getItem(hours[i]));
+
+    console.log(test);
+    };
 
 
 
-  // if statement based on values for setting colors add class, remove class 
-  // $ and descripton for each hour - set for each hour 
- 
+    //var timeBlock = hours[i];
+    // remove green/future, add red/present
+    // if (currentHour == timeBlock) {
+    //$(hoursArray[i]).removeClass("future").addClass("present");}
+  
+// checks if current time is before hour block 
+  //for (i=0; i < hours.length; i++) {
+    //timeBlock = hours[i];
 
+    //if (currentHour > timeBlock)
+    //$(hoursArray[i]).removeClass("future").addClass("past");}
+  
 
-
-
-
-
-
-  // get item value for each input in local storage 
- // for (let i = 0; i < hoursEl.length; i++) {
-   // textarea[i].innerHTML = localStorage.getItem(hoursEl//[i], textarea[i].value);}
-
-  // confused on past, present, future, and how tp change colors based on this......
-  // let newVar = $(this).children/siblings("?").val();
-  // let newVar2 = $(this) ?
-  // localStorage.setItem("","");
-
- 
-
-
-
-  // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
+ // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
   // the code isn't run until the browser has finished rendering all the elements
   // in the html.
   // TODO: Add a listener for click events on the save button. This code should
@@ -93,5 +90,3 @@ $(".saveBtn").on("click", function() {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-
-});
